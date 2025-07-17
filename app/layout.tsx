@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "Md Irshad - Senior Software Engineer",
   description:
     "Portfolio of Md Irshad, Senior Software Engineer specializing in full-stack development, microservices, and modern web technologies.",
-    generator: 'v0.dev'
+    generator: 'Irshad.dev'
 }
 
 export default function RootLayout({
