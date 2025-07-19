@@ -1,28 +1,19 @@
 /** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === 'production'
-
 const nextConfig = {
+  output: 'export',
+  trailingSlash: true,
+  skipTrailingSlashRedirect: true,
+  images: {
+    unoptimized: true
+  },
   eslint: {
     ignoreDuringBuilds: true,
   },
   typescript: {
     ignoreBuildErrors: true,
   },
-  images: {
-    unoptimized: true,
-  },
-  ...(isProd && {
-    output: "export",
-    trailingSlash: true,
-    distDir: "out",
-    basePath: "/portfolio",
-    assetPrefix: "/portfolio/",
-  }),
+  basePath: process.env.NODE_ENV === 'production' ? '/portfolio' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/portfolio/' : '',
+}
 
-  // inside next.config.mjs
-  env: {
-    NEXT_PUBLIC_BASE_PATH: isProd ? "/portfolio" : "",
-  },
-};
-
-export default nextConfig;
+export default nextConfig
